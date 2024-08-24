@@ -6,7 +6,7 @@
         content="Deformable Neural Radiance Fields creates free-viewpoint portraits (nerfies) from casually captured videos.">
   <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Nerfies: Deformable Neural Radiance Fields</title>
+  <title>LM-Gaussian: Boost Sparse-view 3D Gaussian Splatting with Large Model Priors</title>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
@@ -258,31 +258,30 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            We present the first method capable of photorealistically reconstructing a non-rigidly
-            deforming scene using photos/videos captured casually from mobile phones.
-          </p>
-          <p>
-            Our approach augments neural radiance fields
-            (NeRF) by optimizing an
-            additional continuous volumetric deformation field that warps each observed point into a
-            canonical 5D NeRF.
-            We observe that these NeRF-like deformation fields are prone to local minima, and
-            propose a coarse-to-fine optimization method for coordinate-based models that allows for
-            more robust optimization.
-            By adapting principles from geometry processing and physical simulation to NeRF-like
-            models, we propose an elastic regularization of the deformation field that further
-            improves robustness.
-          </p>
-          <p>
-            We show that <span class="dnerf">Nerfies</span> can turn casually captured selfie
-            photos/videos into deformable NeRF
-            models that allow for photorealistic renderings of the subject from arbitrary
-            viewpoints, which we dub <i>"nerfies"</i>. We evaluate our method by collecting data
-            using a
-            rig with two mobile phones that take time-synchronized photos, yielding train/validation
-            images of the same pose at different viewpoints. We show that our method faithfully
-            reconstructs non-rigidly deforming scenes and reproduces unseen views with high
-            fidelity.
+            We aim to address sparse-view reconstruction of a 3D scene by leveraging priors from large-scale vision models.
+           While recent advancements such as 3D Gaussian Splatting
+            (3DGS) have demonstrated remarkable success in 3D reconstruc-
+            tion, these methods typically necessitate hundreds of input images
+            that densely capture the underlying scene, making them time-
+            consuming and impractical for real-world applications. However,
+            sparse-view reconstruction is inherently ill-posed and under-
+            constrained, often resulting in inferior and incomplete outcomes.
+            This is due to issues such as failed initialization, overfitting to
+            input images, and a lack of detail. o mitigate these challenges,
+            we introduce LM-Gaussian, a method capable of generating
+            high-quality reconstructions from a limited number of images.
+            Specifically, we propose a robust initialization module that
+            leverages stereo priors to aid in the recovery of camera poses
+            and the reliable initialization of point clouds. Additionally, a
+            diffusion-based refinement is iteratively applied to incorporate
+            image diffusion priors into the Gaussian optimization process to
+            preserve intricate scene details. Finally, we utilize video diffusion
+            priors to further enhance the rendered images for realistic visual
+            effects. Overall, our approach significantly reduces the data ac-
+            quisition requirements compared to previous 3DGS methods. We
+            validate the effectiveness of our framework through experiments
+            on various public datasets, demonstrating its potential for high-
+            quality 360-degree scene reconstruction.
           </p>
         </div>
       </div>
