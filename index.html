@@ -277,12 +277,110 @@
   </div>
 </section>
 
-<div class="columns is-centered">
-  <div class="column is-full-width">
-    <h2 class="title is-3">Animation</h2>
-      <div id="example4" class="bal-container-small">
+  <section class="section">
+    <div class="container is-max-desktop ">
+      <div class=" has-text-centered">
+        <h2 class="title is-3">Visual Comparisons</h2>
+        <div class="content has-text-justified">
+          <p>
+
+          </p>
+        </div>
+        <div class="columns is-centered">
+          <!-- Visual Effects. -->
+          <div class="column">
+            <div class="content">
+              <div class="columns is-centered">
+                <div class="column is-full-width">
+                  <div id="example1" class="bal-container-small">
+
+                    <div class="bal-after">
+                      <img src="./static/images/comparison/family_00006.png">
+                      <div class="bal-afterPosition afterLabel" style="z-index:1;">
+                        Ours
+                      </div>
+                    </div>
+
+                    <div class="bal-before" style="width:96.4968152866242%;">
+                      <div class="bal-before-inset" style="width: 512px;">
+                        <img src="./static/images/comparison/0006_cf.png">
+                        <div class="bal-beforePosition beforeLabel">
+                          DNGaussian [Li 2024]
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="bal-handle" style="left:96.4968152866242%;">
+                      <span class=" handle-left-arrow"></span>
+                      <span class="handle-right-arrow"></span>
+                    </div>
+
+                  </div>
+
+
+                  <div id="example2" class="bal-container-small">
+
+                    <div class="bal-after">
+                      <img src="./static/images/comparison_n/Francis/francis_00000.png">
+                      <div class="bal-afterPosition afterLabel">
+                        Ours
+                      </div>
+                    </div>
+
+                    <div class="bal-before" style="width: 50%;">
+                      <div class="bal-before-inset" style="width: 512px;">
+                        <img src="./static/images/comparison_n/Francis/nope_0000_francis.png">
+                        <div class="bal-beforePosition beforeLabel">
+                          3DGS [Kerbl 2024]
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="bal-handle" style="left: 50%;">
+                      <span class=" handle-left-arrow"></span>
+                      <span class="handle-right-arrow"></span>
+                    </div>
+                  </div>
+                  <div id="example3" class="bal-container-small">
+
+                    <div class="bal-after">
+                      <img src="./static/images/comparison_n/Bicycle/bicycle_00005.png">
+                      <div class="bal-afterPosition afterLabel">
+                        Ours
+                      </div>
+                    </div>
+
+                    <div class="bal-before" style="width: 50%;">
+                      <div class="bal-before-inset" style="width: 512px;">
+                        <img src="./static/images/comparison_n/Bicycle/0005_nerfmm.png">
+                        <div class="bal-beforePosition beforeLabel">
+                          SparseNerf [Wang 2023]
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="bal-handle" style="left: 50%;">
+                      <span class=" handle-left-arrow"></span>
+                      <span class="handle-right-arrow"></span>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <!--/ Visual Effects. -->
+
+          <!-- Matting. -->
+          <div class="column">
+            <div class="columns is-centered">
+              <div class="column content">
+
+                <div id="example4" class="bal-container-small">
                   <div class="bal-after">
-                    <img src="./static/images/comparison/trunk_3dgs.png">
+                    <img src="./static/images/comparison_n/Horse/horse_00000.png">
                     <div class="bal-afterPosition afterLabel" style="z-index:1;">
                       Ours
                     </div>
@@ -290,9 +388,9 @@
 
                   <div class="bal-before" style="width:62.10191082802548%;">
                     <div class="bal-before-inset" style="width: 512px;">
-                      <img src="./static/images/comparison/trunk_3dgs.png">
+                      <img src="./static/images/comparison_n/Horse/cfgs_0000_horse.png">
                       <div class="bal-beforePosition beforeLabel">
-                        3DGS [kerbl 2023]
+                           DNGaussian [Li 2024]
                       </div>
                     </div>
                   </div>
@@ -316,7 +414,7 @@
                     <div class="bal-before-inset" style="width: 512px;">
                       <img src="./static/images/comparison_n/Barn/nope_0003_barn.png">
                       <div class="bal-beforePosition beforeLabel">
-                        NoPe-NeRF [Bian 2022]
+                         3DGS [Kerbl 2024]
                       </div>
                     </div>
                   </div>
@@ -326,10 +424,61 @@
                     <span class="handle-right-arrow"></span>
                   </div>
 
-<!--/ Animation. -->
-</div>
+                </div>
+                <div id="example6" class="bal-container-small">
+                  <div class="bal-after">
+                    <img src="./static/images/comparison_n/Car/car_00006.png">
+                    <div class="bal-afterPosition afterLabel" style="z-index:1;">
+                      Ours
+                    </div>
+                  </div>
 
-</section>
+                  <div class="bal-before" style="width:56.77179962894249%;">
+                    <div class="bal-before-inset" style="width: 512px;">
+                      <img src="./static/images/comparison_n/Car/0006_nerfmm.png">
+                      <div class="bal-beforePosition beforeLabel">
+                        SparseNerf [Wang 2023]
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="bal-handle" style="left:56.77179962894249%;">
+                    <span class=" handle-left-arrow"></span>
+                    <span class="handle-right-arrow"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </section>
+
+  <script>
+    new BeforeAfter({
+      id: '#example1'
+    });
+    new BeforeAfter({
+      id: '#example2'
+    });
+    new BeforeAfter({
+      id: '#example3'
+    });
+    new BeforeAfter({
+      id: '#example4'
+    });
+    new BeforeAfter({
+      id: '#example5'
+    });
+    new BeforeAfter({
+      id: '#example6'
+    });
+
+
+  </script>
 
 
 <section class="section" id="BibTeX">
