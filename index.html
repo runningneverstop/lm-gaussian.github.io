@@ -277,70 +277,66 @@
   </div>
 </section>
 
-    <!-- Animation. -->
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Animation</h2>
+<div class="columns is-centered">
+  <div class="column is-full-width">
+    <h2 class="title is-3">Animation</h2>
 
-        <!-- Interpolating. -->
-        <div class="video-container">
-            <video id="video1" controls>
-              <source src="./static/videos/horse3" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-            <video id="video2" controls>
-              <source src="./static/videos/horse3" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-          </div>
-        
-          <div class="slider-container">
-            <div class="slider" id="slider">
-              <div class="slider-handle" id="handle"></div>
-            </div>
-          </div>
-        
-          <script>
-            const video1 = document.getElementById('video1');
-            const video2 = document.getElementById('video2');
-            const slider = document.getElementById('slider');
-            const handle = document.getElementById('handle');
-        
-            // 监听滑块拖动事件
-            handle.addEventListener('mousedown', (event) => {
-              document.addEventListener('mousemove', handleDrag);
-              document.addEventListener('mouseup', handleRelease);
-            });
-        
-            function handleDrag(event) {
-              const sliderRect = slider.getBoundingClientRect();
-              let progress = ((event.clientX - sliderRect.left) / sliderRect.width) * 100;
-              progress = Math.max(0, Math.min(100, progress));
-              handle.style.left = `${progress}%`;
-              slider.style.width = `${progress}%`;
-              updateVideoTime(video1, progress);
-              updateVideoTime(video2, progress);
-            }
-        
-            function handleRelease() {
-              document.removeEventListener('mousemove', handleDrag);
-              document.removeEventListener('mouseup', handleRelease);
-            }
-        
-            function updateVideoTime(video, progress) {
-              video.currentTime = video.duration * (progress / 100);
-            }
-          </script>
-        <!--/ Interpolating. -->
+    <!-- Interpolating. -->
+    <div class="video-container">
+      <video id="video1" controls>
+        <source src="./static/videos/horse3" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <video id="video2" controls>
+        <source src="./static/videos/horse3" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
 
+    <div class="slider-container">
+      <div class="slider" id="slider">
+        <div class="slider-handle" id="handle"></div>
       </div>
     </div>
-    <!--/ Animation. -->
 
+    <script>
+      const video1 = document.getElementById('video1');
+      const video2 = document.getElementById('video2');
+      const slider = document.getElementById('slider');
+      const handle = document.getElementById('handle');
 
-   
+      // 监听滑块拖动事件
+      handle.addEventListener('mousedown', (event) => {
+        document.addEventListener('mousemove', handleDrag);
+        document.addEventListener('mouseup', handleRelease);
+      });
+
+      function handleDrag(event) {
+        const sliderRect = slider.getBoundingClientRect();
+        let progress = ((event.clientX - sliderRect.left) / sliderRect.width) * 100;
+        progress = Math.max(0, Math.min(100, progress));
+        handle.style.left = `${progress}%`;
+        slider.style.width = `${progress}%`;
+        updateVideoTime(video1, progress);
+        updateVideoTime(video2, progress);
+      }
+
+      function handleRelease() {
+        document.removeEventListener('mousemove', handleDrag);
+        document.removeEventListener('mouseup', handleRelease);
+      }
+
+      function updateVideoTime(video, progress) {
+        video.currentTime = video.duration * (progress / 100);
+      }
+    </script>
+    <!--/ Interpolating. -->
 
   </div>
+</div>
+<!--/ Animation. -->
+</div>
+
 </section>
 
 
