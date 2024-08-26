@@ -283,37 +283,52 @@
         <h2 class="title is-3">Animation</h2>
 
         <!-- Interpolating. -->
-        <h3 class="title is-4">Interpolating states</h3>
-        <div class="content has-text-justified">
-          <p>
-            We can also animate the scene by interpolating the deformation latent codes of two input
-            frames. Use the slider here to linearly interpolate between the left frame and the right
-            frame.
-          </p>
-        </div>
-        <div class="columns is-vcentered interpolation-panel">
-          <div class="column is-3 has-text-centered">
-            <img src="./static/images/interpolate_start.jpg"
-                 class="interpolation-image"
-                 alt="Interpolate start reference image."/>
-            <p>Start Frame</p>
-          </div>
-          <div class="column interpolation-video-column">
-            <div id="interpolation-image-wrapper">
-              Loading...
+        <div class="bal-container-small">
+          <div class="bal-after">
+            <video id="after-video" width="512" height="288" controls>
+              <source src="./static/videos/ours_barn.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <div class="bal-afterPosition afterLabel" style="z-index:1;">
+              Ours
             </div>
-            <input class="slider is-fullwidth is-large is-info"
-                   id="interpolation-slider"
-                   step="1" min="0" max="100" value="0" type="range">
           </div>
-          <div class="column is-3 has-text-centered">
-            <img src="./static/images/interpolate_end.jpg"
-                 class="interpolation-image"
-                 alt="Interpolation end reference image."/>
-            <p class="is-bold">End Frame</p>
+        
+          <div class="bal-before" style="width:56.77179962894249%;">
+            <div class="bal-before-inset">
+              <video id="before-video" width="512" height="288" controls>
+                <source src="./static/videos/nope_barn.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <div class="bal-beforePosition beforeLabel">
+                NoPe-NeRF [Bian 2022]
+              </div>
+            </div>
+          </div>
+        
+          <div class="bal-handle" style="left:56.77179962894249%;">
+            <span class="handle-left-arrow"></span>
+            <span class="handle-right-arrow"></span>
           </div>
         </div>
-        <br/>
+        
+        <script>
+          const beforeVideo = document.getElementById('before-video');
+          const afterVideo = document.getElementById('after-video');
+          const slider = document.querySelector('.bal-handle');
+        
+          // 监听滑块拖动事件
+          slider.addEventListener('input', () => {
+            const progress = slider.style.left;
+            updateVideoTime(beforeVideo, progress);
+            updateVideoTime(afterVideo, progress);
+          });
+        
+          function updateVideoTime(video, progress) {
+            // 根据滑块位置更新视频当前时间
+            video.currentTime = video.duration * (parseFloat(progress) / 100);
+          }
+        </script>
         <!--/ Interpolating. -->
 
         <!-- Re-rendering. -->
