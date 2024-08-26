@@ -283,52 +283,54 @@
         <h2 class="title is-3">Animation</h2>
 
         <!-- Interpolating. -->
-        <div class="bal-container-small">
-          <div class="bal-after">
-            <video id="after-video" width="512" height="288" controls>
+        <div class="video-container">
+            <video id="video1" controls>
+              <source src="./static/videos/nope_barn.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <video id="video2" controls>
               <source src="./static/videos/ours_barn.mp4" type="video/mp4">
               Your browser does not support the video tag.
             </video>
-            <div class="bal-afterPosition afterLabel" style="z-index:1;">
-              Ours
+          </div>
+        
+          <div class="slider-container">
+            <div class="slider" id="slider">
+              <div class="slider-handle" id="handle"></div>
             </div>
           </div>
         
-          <div class="bal-before" style="width:56.77179962894249%;">
-            <div class="bal-before-inset">
-              <video id="before-video" width="512" height="288" controls>
-                <source src="./static/videos/nope_barn.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-              </video>
-              <div class="bal-beforePosition beforeLabel">
-                NoPe-NeRF [Bian 2022]
-              </div>
-            </div>
-          </div>
+          <script>
+            const video1 = document.getElementById('video1');
+            const video2 = document.getElementById('video2');
+            const slider = document.getElementById('slider');
+            const handle = document.getElementById('handle');
         
-          <div class="bal-handle" style="left:56.77179962894249%;">
-            <span class="handle-left-arrow"></span>
-            <span class="handle-right-arrow"></span>
-          </div>
-        </div>
+            // 监听滑块拖动事件
+            handle.addEventListener('mousedown', (event) => {
+              document.addEventListener('mousemove', handleDrag);
+              document.addEventListener('mouseup', handleRelease);
+            });
         
-        <script>
-          const beforeVideo = document.getElementById('before-video');
-          const afterVideo = document.getElementById('after-video');
-          const slider = document.querySelector('.bal-handle');
+            function handleDrag(event) {
+              const sliderRect = slider.getBoundingClientRect();
+              let progress = ((event.clientX - sliderRect.left) / sliderRect.width) * 100;
+              progress = Math.max(0, Math.min(100, progress));
+              handle.style.left = `${progress}%`;
+              slider.style.width = `${progress}%`;
+              updateVideoTime(video1, progress);
+              updateVideoTime(video2, progress);
+            }
         
-          // 监听滑块拖动事件
-          slider.addEventListener('input', () => {
-            const progress = slider.style.left;
-            updateVideoTime(beforeVideo, progress);
-            updateVideoTime(afterVideo, progress);
-          });
+            function handleRelease() {
+              document.removeEventListener('mousemove', handleDrag);
+              document.removeEventListener('mouseup', handleRelease);
+            }
         
-          function updateVideoTime(video, progress) {
-            // 根据滑块位置更新视频当前时间
-            video.currentTime = video.duration * (parseFloat(progress) / 100);
-          }
-        </script>
+            function updateVideoTime(video, progress) {
+              video.currentTime = video.duration * (progress / 100);
+            }
+          </script>
         <!--/ Interpolating. -->
 
         <!-- Re-rendering. -->
