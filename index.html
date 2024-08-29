@@ -195,15 +195,11 @@
         <div class="content has-text-justified">
           <p>
             We aim to address sparse-view reconstruction of a 3D scene by leveraging priors from large-scale vision models.
-           While recent advancements such as 3D Gaussian Splatting
-            (3DGS) have demonstrated remarkable success in 3D reconstruc-
-            tion, these methods typically necessitate hundreds of input images
-            that densely capture the underlying scene, making them time-
-            consuming and impractical for real-world applications. However,
-            sparse-view reconstruction is inherently ill-posed and under-
-            constrained, often resulting in inferior and incomplete outcomes.
+           While recent advancements such as 3D Gaussian Splatting (3DGS) have demonstrated remarkable success in 3D reconstruction, these methods typically 
+            necessitate hundreds of input images that densely capture the underlying scene, making them time-consuming and impractical for real-world applications. However,
+            sparse-view reconstruction is inherently ill-posed and under-constrained, often resulting in inferior and incomplete outcomes.
             This is due to issues such as failed initialization, overfitting to
-            input images, and a lack of detail. o mitigate these challenges,
+            input images, and a lack of detail. To mitigate these challenges,
             we introduce LM-Gaussian, a method capable of generating
             high-quality reconstructions from a limited number of images.
             Specifically, we propose a robust initialization module that
@@ -213,8 +209,7 @@
             image diffusion priors into the Gaussian optimization process to
             preserve intricate scene details. Finally, we utilize video diffusion
             priors to further enhance the rendered images for realistic visual
-            effects. Overall, our approach significantly reduces the data ac-
-            quisition requirements compared to previous 3DGS methods. We
+            effects. Overall, our approach significantly reduces the data acquisition requirements compared to previous 3DGS methods. We
             validate the effectiveness of our framework through experiments
             on various public datasets, demonstrating its potential for high-
             quality 360-degree scene reconstruction.
